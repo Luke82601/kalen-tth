@@ -1,0 +1,20 @@
+CREATE DATABASE IF NOT EXISTS kalen;
+USE kalen;
+CREATE TABLE IF NOT EXISTS clients (
+  id int NOT NULL AUTO_INCREMENT,
+  company VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  main_phone VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+CREATE TABLE IF NOT EXISTS contacts (
+  id int NOT NULL AUTO_INCREMENT,
+  client_id INT,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  email VARCHAR(60) NOT NULL,
+  phone VARCHAR(16) NOT NULL,
+  position VARCHAR(100) NOT NULL,
+  FOREIGN KEY (client_id) REFERENCES clients(id),
+  PRIMARY KEY (ID)
+);
